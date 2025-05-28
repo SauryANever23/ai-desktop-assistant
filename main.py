@@ -42,11 +42,20 @@ def openWebsites(cmd):
  
 def main():
     say("Jarvis Found")
+    print("Listening")
+    command = takeCommand()
+    cmd_lst = command.split()
+    
+    if cmd_lst[0].lower == "active":
+        pass
+    
+    if len(cmd_lst) == 2:
+        open(openWebsites(command))
+
 
 if __name__ == '__main__':
-    print("listening...")
-    t = takeCommand()
-    openWebsites(t)
+    main()
+    
 
 
     
