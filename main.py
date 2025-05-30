@@ -28,7 +28,6 @@ def openWebsites(cmd):
     for word in words:
         if "open" in word.lower():
             try:
-                say("opening...")
                 site = f"https://www.{words[1]}.com"
             except:
                 site = f"https://www.{words[1]}.org"
