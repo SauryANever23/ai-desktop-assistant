@@ -22,9 +22,13 @@ def takeCommand():
         print(f"error: {e}")
 
 def openWebsites(cmd):
-
-    words = cmd.split()
     
+    words = cmd.split()
+    nwords = []
+    
+    indx = words.index("open")
+    nwords.append(words[indx+1])
+
     for word in words:
         if "open" in word.lower():
             try:
@@ -40,16 +44,23 @@ def openWebsites(cmd):
 
  
 def main():
-    say("Jarvis Found")
-    print("Listening")
-    command = takeCommand()
-    cmd_lst = command.split()
+    running = True
+    while running:
+        say("Jarvis Found")
+        print("Listening")
+        command = takeCommand()
+        cmd_lst = command.split()
+        
+        reg_input = input("")
+
+        if reg_input = "q":
+            running = False
+
+        if cmd_lst[0].lower == "active":
+            pass
     
-    if cmd_lst[0].lower == "active":
-        pass
-    
-    if len(cmd_lst) == 2:
-        open(openWebsites(command))
+        if len(cmd_lst) == 2:
+            openWebsites(command)
 
 
 if __name__ == '__main__':
