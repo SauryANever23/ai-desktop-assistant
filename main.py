@@ -25,7 +25,7 @@ def openWebsites(cmd):
     
     words = cmd.split()
     nwords = []
-    
+     
     indx = words.index("open")
     nwords.append(words[indx+1])
 
@@ -46,18 +46,20 @@ def openWebsites(cmd):
 def main():
     running = True
     while running:
-        say("Jarvis Found")
+        say("Listening..")
         print("Listening")
         command = takeCommand()
-        if type(command) != NoneType:
+        if str(type(command)) != "<class 'NoneType'>":
             cmd_lst = command.split()
         
             if cmd_lst[0].lower == "active":
                 pass
-    
-        if len(cmd_lst) == 2:
-            openWebsites(command)
-
+            
+            if "open" in command:
+                if len(cmd_lst) == 2:
+                    openWebsites(command)
+            else:
+                pass
 
 if __name__ == '__main__':
     main()
