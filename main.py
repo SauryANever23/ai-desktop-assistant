@@ -51,11 +51,6 @@ def main():
         command = takeCommand()
         cmd_lst = command.split()
         
-        reg_input = input("")
-
-        if reg_input = "q":
-            running = False
-
         if cmd_lst[0].lower == "active":
             pass
     
