@@ -49,10 +49,11 @@ def main():
         say("Jarvis Found")
         print("Listening")
         command = takeCommand()
-        cmd_lst = command.split()
+        if type(command) != NoneType:
+            cmd_lst = command.split()
         
-        if cmd_lst[0].lower == "active":
-            pass
+            if cmd_lst[0].lower == "active":
+                pass
     
         if len(cmd_lst) == 2:
             openWebsites(command)
