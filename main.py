@@ -41,8 +41,8 @@ def openWebsites(cmd):
     say(f"Opening {words[1]} sir..")
     webbrowser.open(site)
 
+    
 
- 
 def main():
     running = True
     while running:
