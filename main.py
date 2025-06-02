@@ -5,6 +5,7 @@ import os
 import webbrowser
 import datetime 
 import sys
+import re
 
 def say(text):
     os.system(f'say "{text}"')
@@ -46,6 +47,20 @@ def sayTime():
     strf = datetime.datetime.now().strftime("%H:%M")
     say(f"The time is {strf}")
 
+def openApp(cmd):
+    lcase = cmd.lower()
+    commands = lcase.split()
+    app_indx = commands.index("app")
+    
+    file = "file"
+    app = commands[app_indx+1]
+
+    match = re.search(file, app)
+    if match:
+        say("opening files SIR!")
+        os.system(f"open /home/saurya-jha")
+
+    
 
 def main():
     running = True
@@ -63,8 +78,15 @@ def main():
                 sayTime()
 
             if "open" in command:
-                if len(cmd_lst) == 2:
-                    openWebsites(command)
+                try:
+                    if len(cmd_lst) == 2:
+                        openWebsites(command)
+                except:
+                    say("Sorry, some error occoured")
+
+            if "app" in command:
+                openApp(command)
+
 
             if "close" in command:
                 say("Closing")
