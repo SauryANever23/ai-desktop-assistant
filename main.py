@@ -3,7 +3,8 @@ import openai
 import wikipedia as wk 
 import os
 import webbrowser
-
+import datetime 
+import sys
 
 def say(text):
     os.system(f'say "{text}"')
@@ -41,7 +42,10 @@ def openWebsites(cmd):
     say(f"Opening {words[1]} sir..")
     webbrowser.open(site)
 
-    
+def sayTime():
+    strf = datetime.datetime.now().strftime("%H:%M")
+    say(f"The time is {strf}")
+
 
 def main():
     running = True
@@ -55,9 +59,17 @@ def main():
             if cmd_lst[0].lower == "active":
                 pass
             
+            if "the time" in command:
+                sayTime()
+
             if "open" in command:
                 if len(cmd_lst) == 2:
                     openWebsites(command)
+
+            if "close" in command:
+                say("Closing")
+                sys.exit()
+
             else:
                 pass
 
