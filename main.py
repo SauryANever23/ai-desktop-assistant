@@ -60,7 +60,14 @@ def openApp(cmd):
         say("opening files SIR!")
         os.system(f"open /home/saurya-jha")
 
-    
+def tokenizer_prototype(cmd) -> list:
+    new = cmd.lower()
+    new_list = new.split()
+       
+    for i in range(len(new_list)):
+        if new_list[i] == "." or new_list[i] == "?" or new_list[i] == "/":
+            new_list.pop(new_list[i])
+
 
 def main():
     running = True
