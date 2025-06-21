@@ -13,8 +13,7 @@ class SendEmail():
         payload["From"] = os.environ["EMAIL_ID"]
         payload["To"] = reciever
 
-        with smtplib.SMTP_SSL('smtp.gmail.com', 587) as s:
-            s.starttls() # Transport layer security 
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as s:
             s.login(os.environ["EMAIL_ID"], os.environ["EMAIL_ID_PASS"]) # Logging in 
             s.send_message(payload)
             
@@ -24,8 +23,7 @@ def main():
     ## I want you to make my computer work
     - For that reason lets go make it, after lunch
     """
-    SendEmail.send(message, "Computer" "mukeshkumarjha98@gmail.com")
-
+    SendEmail.send(message, "Computer", "mukeshkumarjha98@gmail.com")
 if __name__ == '__main__':
     main()
 
